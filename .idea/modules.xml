@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/WeaverDjangoProject.iml" filepath="$PROJECT_DIR$/.idea/WeaverDjangoProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DjangoWeaver.iml" filepath="$PROJECT_DIR$/.idea/DjangoWeaver.iml" />
     </modules>
   </component>
 </project>

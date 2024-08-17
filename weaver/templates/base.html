@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FilePond styles -->
-    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <title>Weaver - API Upload Service</title>
 </head>
 <body class="bg-[#FEFEFE] font-sans flex flex-col min-h-screen">
@@ -19,6 +17,15 @@
 
     <main class="p-6 max-w-3xl mx-auto flex-grow flex flex-col justify-center">
         <h1 class="text-darkPurple text-4xl sm:text-5xl font-bold mb-6 drop-shadow-lg font-serif text-center">Upload Your Content</h1>
+
+        <!-- Upload Status -->
+        {% if upload_status %}
+        <div class="text-center mb-4">
+            <p class="text-lg font-semibold {% if 'Success' in upload_status %}text-green-500{% else %}text-red-500{% endif %}">
+                {{ upload_status }}
+            </p>
+        </div>
+        {% endif %}
 
         <!-- Caption Input with Custom Emoji Picker -->
         <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6">
@@ -33,9 +40,10 @@
                 </div>
             </div>
 
-            <!-- File Upload Section using FilePond -->
-            <div>
-                <input type="file" id="file" name="file" class="filepond" accept="video/*">
+            <!-- Drag-and-Drop File Upload Section -->
+            <div id="drop-area" class="border-dashed border-2 border-gray-300 rounded-md p-6 flex items-center justify-center flex-col">
+                <p class="text-gray-500">Drag & drop your video file here, or click to select a file</p>
+                <input type="file" id="file" name="file" accept="video/*" class="hidden">
             </div>
 
             <!-- Video Preview Player -->
@@ -53,8 +61,6 @@
 
     {% include 'components/footer.html' %}
 
-    <!-- FilePond scripts -->
-    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <!-- Custom Scripts -->
     <script src="{% static 'weaver/js/weaver.js' %}"></script>
 </body>

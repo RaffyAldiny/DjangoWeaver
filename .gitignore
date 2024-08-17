@@ -1,0 +1,3 @@
+# Ignore client secrets file
+weaver/client_yt_secrets.json
+*.mp4
