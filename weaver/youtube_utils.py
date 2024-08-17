@@ -17,7 +17,7 @@ def authenticate_youtube():
         os.remove(TOKEN_FILE)
 
     # Load client secrets file
-    client_secrets_file = "C:/Users/RaffyAldiny/PycharmProjects/WeaverDjangoProject/weaver/client_yt_secrets.jsons"
+    client_secrets_file = "C:/Users/RaffyAldiny/PycharmProjects/DjangoWeaver/weaver/client_yt_secrets.json"
 
     # Get credentials and create an API client
     flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
